@@ -1,4 +1,6 @@
-**Solution Design Document : Dynamics 365 + Azure OpenAI Integration using Azure Functions and PCF Chat UI**
+**Solution Design Document :
+
+Dynamics 365 + Azure OpenAI Integration using Azure Functions and PCF Chat UI**
 
 
 **1. Introduction**
