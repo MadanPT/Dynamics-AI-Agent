@@ -1,0 +1,224 @@
+:root{
+  --devui-bg: #f7f7f8;
+  --devui-panel: #ffffff;
+  --devui-border: #e3e3e6;
+  --devui-text: #1f2937;
+  --devui-muted: #6b7280;
+  --accent: #0063f7;
+  --user-bubble: #e6f0ff;
+  --assistant-bubble: #ffffff;
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(15,23,42,0.06);
+  --small: 12px;
+  --medium: 16px;
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  :root{
+    --devui-bg: #0b1220;
+    --devui-panel: #0f1724;
+    --devui-border: #16202b;
+    --devui-text: #e6eef8;
+    --devui-muted: #9aa7b8;
+    --accent: #3b82f6;
+    --user-bubble: #05203b;
+    --assistant-bubble: #0f1724;
+    --shadow: 0 10px 30px rgba(0,0,0,0.6);
+  }
+}
+
+/* Container */
+.pcf-devui{
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: var(--devui-bg);
+  color: var(--devui-text);
+  border-radius: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 18px;
+}
+
+/* Header */
+.devui-header{
+  display:flex;
+  align-items:flex-start !important;
+  justify-content:space-between;
+  gap:1rem;
+  padding:0.6rem 0.9rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-bottom: 1px solid var(--devui-border);
+  backdrop-filter: blur(4px);
+}
+.devui-header .title{
+  font-weight:600;
+  font-size:0.95rem;
+}
+.devui-header .actions { display:flex; gap:0.4rem; }
+
+/* Body (scrollable) */
+.devui-body{
+  flex:1 1 auto;
+  overflow:auto;
+  padding:1rem;
+  -webkit-overflow-scrolling: touch;
+}
+.messages1 { display:flex; flex-direction:column; gap:0.65rem; max-width:100%; }
+
+/* Message rows */
+.msg{
+  display:flex;
+  align-items:flex-end; 
+   gap:0.6rem;
+  width:100%;
+   box-sizing:border-box; 
+}
+.msg-user{ justify-content:flex-end; }
+.msg-assistant{ justify-content:flex-start; }
+
+.msg-assistant .bubble,
+.msg-user .bubble {
+    display: inline-block;
+    max-width: 80%;
+    padding: 0px 0px;
+    border-radius: 12px;
+    line-height: 1;
+    white-space: pre-wrap; /* Auto height for multiline text */
+    word-break: break-word;
+}
+
+/* Bubble */
+.bubble1{
+  max-width:78%;
+  padding:0.6rem 0.8rem;
+  border-radius: var(--radius);
+  background: var(--assistant-bubble);
+  box-shadow: var(--shadow);
+  line-height:1.35;
+  font-size: var(--medium);
+  border: 1px solid var(--devui-border);
+  word-wrap: break-word;
+}
+.msg-user .bubble{
+  background: var(--user-bubble);
+  border-top-right-radius: 8px;
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: 6px;
+}
+
+/* Tiny metadata below message (time, status) */
+.msg .meta{
+  font-size: 0.75rem;
+  color: var(--devui-muted);
+  margin-top:0.25rem;
+}
+
+/* Footer / Input area */
+.devui-footer{
+  display:flex;
+  gap:0.6rem;
+  align-items:center;
+  padding:0.6rem;
+  border-top:1px solid var(--devui-border);
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.01));
+}
+.input-wrap{
+  flex:1 1 auto;
+}
+.devui-input{
+  width:100%;
+  min-height:36px;
+  max-height:120px;
+  resize:none;
+  padding:0.6rem 0.8rem;
+  border-radius:10px;
+  border:1px solid var(--devui-border);
+  background: var(--devui-panel);
+  color: var(--devui-text);
+  font-size:var(--medium);
+  outline:none;
+  box-sizing:border-box;
+}
+.devui-input:focus{
+  box-shadow: 0 0 0 4px rgba(0,99,247,0.08);
+  border-color: var(--accent);
+}
+
+/* Buttons */
+.send-btn, .icon-btn{
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight:600;
+  min-width:44px;
+  height:36px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.icon-btn{
+  background: transparent;
+  color: var(--devui-muted);
+  border-radius:8px;
+  padding:0.25rem;
+  height:32px;
+  min-width:32px;
+}
+.icon-btn:focus, .send-btn:focus{
+  outline: 3px solid rgba(59,130,246,0.18);
+  outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width:600px){
+  .bubble{ max-width:86%; font-size:14px; }
+  .devui-header .title{ font-size:0.9rem; }
+  .send-btn{ padding:0.45rem 0.6rem; height:34px; }
+}
+
+/* Accessibility helpers: high contrast outline for keyboard users */
+.pcf-devui :focus{
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.18);
+  border-radius:8px;
+}
+
+/* Small utility classes */
+.kv-muted { color:var(--devui-muted); font-size:0.9rem; }
+.small { font-size: var(--small); color:var(--devui-muted); }
+
+/* Minimal animation */
+.bubble_ {
+  transform-origin: center;
+  transition: transform 160ms cubic-bezier(.2,.9,.3,1), opacity 160ms;
+}
+.msg-enter { transform: translateY(8px) scale(0.995); opacity:0; }
+.msg-enter-active { transform: translateY(0) scale(1); opacity:1; transition: all 220ms ease-out; }
+
+
+
+.bubble table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.bubble table tr:nth-child(1) {
+    font-weight: bold;
+    background: #f3f3f3;
+}
+
+.bubble table td {
+    border: 1px solid #ccc;
+    padding: 6px;
+    text-align: left;
+}
+
