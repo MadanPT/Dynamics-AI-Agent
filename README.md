@@ -1,3 +1,6 @@
+**Solution Design Document : Dynamics 365 + Azure OpenAI Integration using Azure Functions and PCF Chat UI**
+
+
 **1. Introduction**
 This document presents the end-to-end design for integrating Microsoft Dynamics 365 with Azure OpenAI services through an Azure Function middleware API and a custom-built PowerApps Component Framework (PCF) Chat UI. 
 The solution enhances Dynamics 365 user experience by enabling natural-language AI-based assistance inside CRM.
