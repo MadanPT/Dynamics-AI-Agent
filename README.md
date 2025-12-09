@@ -17,6 +17,8 @@ The solution integrates three main components:
 The architecture ensures security, scalability, and modularity for enterprise-grade AI-driven CRM assistance.
 
 **3. Architecture Diagram **
+
+ <img width="1536" height="1024" alt="Image" src="https://github.com/user-attachments/assets/a906bda2-0b20-429f-b766-1927ccda7a5e" />
  
 **4. Component Details**
 4.1 Azure AI Foundry / Azure OpenAI  
