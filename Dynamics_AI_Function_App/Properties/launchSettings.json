@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Dynamics_AI_Function_App": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7270",
+      "launchBrowser": false
+    }
+  }
+}
